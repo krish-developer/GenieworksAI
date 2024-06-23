@@ -12,9 +12,11 @@
 
 - [Next.js](https://nextjs.org)
 - [OpenAI](https://openai.com)
-- [Replicate](https://replicate.com/)
+- [ReplicateAI](https://replicate.com/)
+- [Clerk](https://clerk.com/)
 - [Tailwind CSS](https://tailwindcss.com)
--  [Stripe](https://stripe.com)
+- [MongoDB](https://www.mongodb.com/)
+- [Stripe](https://stripe.com)
 
 
 ## About The Project
