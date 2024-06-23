@@ -111,9 +111,9 @@ const faqs = [
 
 
 const LandingContent = () => {
-  const [openFAQIndex, setOpenFAQIndex] = useState(null); // State to track which FAQ is open
+  const [openFAQIndex, setOpenFAQIndex] = useState<number | null>(null); // State to track which FAQ is open
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     if (openFAQIndex === index) {
       setOpenFAQIndex(null); // Close the FAQ if it's already open
     } else {
