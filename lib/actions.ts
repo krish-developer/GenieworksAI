@@ -76,7 +76,6 @@ export const checkFreeTrialAvailability = async (): Promise<boolean> => {
     await connectToDB();
 
     const userDetails = await fetchUser();
-    console.log("checkFreeTrialAvailability ~ userDetails:", userDetails);
 
     if (!userDetails || userDetails.limit < MAX_FREE_TRIALS) return true;
 

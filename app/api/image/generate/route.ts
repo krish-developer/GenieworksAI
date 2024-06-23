@@ -3,9 +3,9 @@ import { auth } from "@clerk/nextjs";
 import OpenAI, { ClientOptions } from "openai";
 
 import {
-  checkFreeTrailAvailability,
+  checkFreeTrialAvailability,
   checkSubscription,
-  incrementFreeTrailCount,
+  incrementFreeTrialCount,
 } from "@/lib/actions";
 import Prompt from "@/lib/models/prompt.model";
 
@@ -28,14 +28,14 @@ export async function POST(req: Request) {
       return new NextResponse("Please provide prompt", { status: 400 });
 
     //************ Commented the below code for production. Uncomment to make unlimited generations functional for Pro user */
-    // const isFreeTrailAvailable = await checkFreeTrailAvailability();
+    // const isFreeTrailAvailable = await checkFreeTrialAvailability();
     // const isProUser = await checkSubscription();
 
     // if (!isFreeTrailAvailable && !isProUser) {
     //   return new NextResponse("Free trails exhausted", { status: 403 });
     // }
 
-    const isFreeTrailAvailable = await checkFreeTrailAvailability();
+    const isFreeTrailAvailable = await checkFreeTrialAvailability();
     if (!isFreeTrailAvailable)
       return new NextResponse("Out of free trials", { status: 403 });
 
@@ -52,9 +52,9 @@ export async function POST(req: Request) {
     };
 
     //************ Commented the below code for production. Uncomment to make unlimited generations functional for Pro user */
-    // !isProUser && (await incrementFreeTrailCount());
+    // !isProUser && (await incrementFreeTrialCount());
 
-    await incrementFreeTrailCount();
+    await incrementFreeTrialCount();
 
     await Prompt.create({
       userId: userId,
